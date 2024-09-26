@@ -1,0 +1,12 @@
+name: php-performance
+
+services:
+  swoole-http-server:
+    build:
+      context: .
+      args:
+        - PHP_VERSION=${PHP_VERSION:-8.3.11}
+    working_dir: /php-performance
+    volumes:
+      - ./src:/php-performance
+    command: sh -c "php index.php"
